@@ -5,11 +5,13 @@ library(ggplot2)
 # import dataset
 df <- read.csv("/Users/williamhardjanto/Desktop/info201/coding/assignment/a3-spl-checkouts-WilliamH11/Checkouts_by_Title.csv")
 
+# count mean checkout of every material type
 mean_material <- df %>%
   group_by(MaterialType) %>%
   summarise(mean_checkout = mean(Checkouts)) %>%
   arrange(mean_checkout)
 
+# create bar graph
 ggplot(mean_material, aes(x = MaterialType, y = mean_checkout, fill = MaterialType)) +
   geom_bar(stat = "identity") +
   coord_flip() +
