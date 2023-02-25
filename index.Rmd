@@ -5,82 +5,40 @@ output: html_document
 
 ### Introduction
 
-An introduction of the data and a description of the trends/books/items you are choosing to analyze (and why!)
+The dataset I choose to use contains book that has percy jackson in its title. I choose to analyze this data because a long time ago I thought reading Harry Potter is too mainstream and I wanted to try something different and choose to read Percy Jackson. I should've sticked with Harry Potter... Well because of that I choose to analyze this series. I will analyze the trends and popularity of the Percy Jackson series, as well as individual book performance within the series. Specifically, I will be analyzing the checkout data of the series from the Seattle public library to determine which books are the most popular, which books have the highest and lowest number of checkouts, and whether there are any trends in terms of when the books are checked out throughout the year. 
 
 ### Summary Information
 
-Write a summary paragraph of findings that includes the 5 values calculated from your summary information R script
-
-These will likely be calculated using your DPLYR skills, answering questions such as:
-
-- What is the average number of checkouts for each item?
-- What is the month or year with the most/least checkouts for a book that you're interested in?
-- What is the month or year with the most/least checkouts for ebooks?
-- How has the number of print book checkouts changed over time?
-
-Feel free to calculate and report values that you find relevant.
+After analyzing the library's checkout data, several key findings were discovered. The total number of checkouts for all items was 48123, with the most common checkout being for the book titled 'Percy Jackson & the Olympians [videorecording]'. On average, there were 9.8 checkouts per activity per year. The most popular material type was 'EBOOK', with 15407 checkouts. The peak checkout month for each year was determined, with the highest number of checkouts in a month occurring in the year 2021. Finally, the lowest checkout year and month were identified, with the fewest checkouts occurring multiple times at different month of the year 2005 until 2008. These findings provide valuable insights into the library's usage patterns and can inform future collection development and resource allocation decisions.
 
 ### The Dataset
 
-- Who collected/published the data?  
-- What are the parameters of the data (dates, number of checkouts, kinds of books, etc.)?
-- How was the data collected or generated?  
-- Why was the data collected?  
-- What, if any, ethical questions do you need to consider when working with this data?  
-- What are possible limitations or problems with this data?   (at least 200 words)
+The Checkouts by Title dataset on the Seattle Open Data portal was collected and published by the Seattle Public Library. The dataset contains information on the usage of books and other materials in the library system between 2005 and present. Parameters included in the dataset are usage class, checkout type, material type, checkout year, checkout month, number of checkouts, title, ISBN, creator, subjects, publisher, and publication year. The data was collected electronically by the circulation software used by the library system when patrons check out and return materials. The purpose of the data collection was to provide insight into library operations, including resource allocation and collection development decisions. However, ethical considerations must be taken into account when working with this data, including ensuring the privacy and confidentiality of library patrons and minimizing the potential impact on individuals and the community. Limitations of the dataset include the fact that it only reflects usage within the Seattle Public Library system and does not provide a complete picture of book usage in the community. Additionally, it only includes information on materials that are part of the library's collection and does not include usage information on other types of materials or digital downloads. Finally, the dataset is limited to checkouts, and does not provide information on other types of usage, such as in-library use. These limitations and ethical considerations must be taken into account when analyzing and interpreting the Checkouts by Title dataset.
 
 
 ### First Trends Over Time Chart
 
-Include a chart. Make sure to describe why you included the chart, and what patterns emerged
-
-The first chart that you will create and include will show the trend over time of your variable/topic/interest. Think carefully about what you want to communicate to your user (you may have to find relevant trends in the dataset first!). Here are some requirements to help guide your design:
-
-- Show more than one, but fewer than ~10 trends
-  - For example, two books, or 5 different mediums
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- You need a legend for your different line colors and a clear - legend title
-In your .Rmd file, make sure to describe why you included the chart, and what patterns emerged
-
-When we say "clear" or "human readable" titles and labels, that means that you should not just display the variable name.
-
-Here's an example of how to run an R script inside an RMarkdown file:
-
-``````{r, echo = FALSE, warning = FALSE, code = readLines("chart1_example.R")}
+``````{r, echo = FALSE, warning = FALSE, message = F, code = readLines("chart1_example.R")}
 ```
+The chart displays the number of checkouts per year. I included this chart so that we can know how the number of chekcout changes every year as I wanted to know the activity of the library. The x-axis represents the years from 2005 to 2023, while the y-axis shows the total number of checkouts for each year. The bars are colored according to the total number of checkouts for each month, with darker colors representing lower numbers of checkouts and lighter color representing more checkouts.
+
+From the chart, we can see that the number of checkouts generally increased from 2005 to a peak in 2014, and then began to decline. There is an increase again in checkouts in 2019 and 2020, possibly due to the pandemic and increased use of library resources during lockdowns. But it peaked again to an all time high in 2021.
+
 
 ### Second Trends Over Time Chart
 
-Include a chart. Make sure to describe why you included the chart, and what patterns emerged
-
-The second chart that you will create and include will show another trend over time of your variable/topic/interest. Think carefully about what you want to communicate to your user (you may have to find relevant trends in the dataset first!). Here are some requirements to help guide your design:
-
-- Show more than one, but fewer than ~10 trends
-  - For example, two books, or 5 different mediums
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- You need a legend for your different line colors and a clear - legend title
-In your .Rmd file, make sure to describe why you included the chart, and what patterns emerged
-
-When we say "clear" or "human readable" titles and labels, that means that you should not just display the variable name.
-
-Here's an example of how to run an R script inside an RMarkdown file:
-
-``````{r, echo = FALSE, code = readLines("chart2_example.R")}
+``````{r, echo = FALSE, warning = FALSE, message = F, code = readLines("chart2_example.R")}
 ```
+The chart displays the total number of checkouts per year for physical and digital usage class in the Seattle Public Library system. I included this chart as I wanted to see how digital goods are doing compared to physical goods. Honestly, I wanted to know whether there are people who is still checking out physical stuffs from library. The x-axis represents the years from 2005 to 2023, while the y-axis shows the total number of checkouts for each year. The two lines are colored according to the material type, with blue representing physical materials and red representing digital materials.
+
+From the chart, we can see that the number of checkouts for physical materials has been declining steadily since 2014, while the number of checkouts for digital materials has been increasing steadily since 2007. In fact, the number of digital checkouts surpassed the number of physical checkouts in 2015 - 2016 and has continued to grow since then. This suggests a clear shift in user behavior towards digital materials over physical ones, likely due to the increasing popularity of e-books and other digital formats. Noted that the data for 2023 is misleading in that it only contain data from January which caused the sudden fall in checkout.
 
 ### Your Choice
 
-The last chart is up to you. It could be a line plot, scatter plot, histogram, bar plot, stacked bar plot, and more. Here are some requirements to help guide your design:
-
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- You need a legend for your different line colors and a clear legend title
-
-Here's an example of how to run an R script inside an RMarkdown file:
-
-``````{r, echo = FALSE, code = readLines("chart2_example.R")}
+``````{r, echo = FALSE, warning = FALSE,  message = F, code = readLines("chart_3.R")}
 ```
 
+The chart displays the mean checkout amount for each material type in the Seattle Public Library system. I included this chart as I was curious on which type of material are checked out the most. I was surprised that VIDEODISC was the most common checkout. The x-axis represents the mean checkout amount for each material typet, while the y-axis shows the material types. The bars are colored according to the material type.
+
+From the chart, we can see that VIDEODISC have the highest mean checkout amount, followed by BOOK, AUDIOBOOK, and EBOOK. MUSIC and VIDEOCASS have the lowest mean checkout amounts. This suggests that users tend to borrow VIDEODISC more frequently than other types of materials. However, it's important to note that the number of checkouts for each material type can vary widely, which may influence the mean checkout amount. Though I checked by making the same chart but with total checkout instead of mean and the results are the same.
 
